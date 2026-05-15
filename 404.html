@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Not Found</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #0e0e0e;
+        --surface: #161616;
+        --border: #2a2a2a;
+        --accent: #c8f04d;
+        --text: #e8e8e0;
+        --muted: #666;
+        --serif: "DM Serif Display", Georgia, serif;
+        --sans: "DM Sans", system-ui, sans-serif;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--sans);
+        font-weight: 300;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 3rem;
+        border-bottom: 1px solid var(--border);
+        background: rgba(14, 14, 14, 0.85);
+        backdrop-filter: blur(12px);
+      }
+
+      nav .logo {
+        font-family: var(--serif);
+        font-size: 1.2rem;
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        gap: 2.5rem;
+      }
+
+      nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.85rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        color: var(--text);
+      }
+
+      /* ── BIG 404 ── */
+      .container {
+        text-align: center;
+        animation: fadeUp 0.8s ease both;
+      }
+
+      .four-o-four {
+        font-family: var(--serif);
+        font-size: clamp(7rem, 22vw, 16rem);
+        line-height: 1;
+        color: var(--surface);
+        letter-spacing: -0.02em;
+        position: relative;
+        user-select: none;
+      }
+
+      .four-o-four::after {
+        content: "404";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, var(--border) 0%, transparent 60%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      h1 {
+        font-family: var(--serif);
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        margin: 1rem 0 1rem;
+        color: var(--text);
+      }
+
+      h1 em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      p {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .back {
+        display: inline-block;
+        padding: 0.9rem 2.2rem;
+        background: var(--accent);
+        color: #0e0e0e;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+
+      .back:hover {
+        opacity: 0.85;
+        transform: translateY(-2px);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 480px) {
+        nav {
+          padding: 1rem 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a class="logo" href="/">MO.</a>
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <div class="four-o-four">404</div>
+      <h1>Nothing <em>here.</em></h1>
+      <p>That page doesn't exist — or maybe it never did.</p>
+      <a class="back" href="/">← Back home</a>
+    </main>
+  </body>
+</html>

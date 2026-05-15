@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0e0e0e;
+      --surface:   #161616;
+      --border:    #2a2a2a;
+      --accent:    #c8f04d;
+      --text:      #e8e8e0;
+      --muted:     #666;
+      --serif:     'DM Serif Display', Georgia, serif;
+      --sans:      'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(14,14,14,.85);
+      backdrop-filter: blur(12px);
+    }
+
+    nav .logo {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: .02em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .85rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--text); }
+    nav a.active { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 14rem 3rem 6rem;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeUp .8s ease both;
+    }
+
+    .hero .eyebrow {
+      font-size: .75rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 580px;
+      color: #aaa;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 4rem auto 4rem 3rem;
+      max-width: 900px;
+      margin-left: calc((100% - 900px)/2);
+    }
+
+    /* ── SKILLS ── */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem 6rem;
+      animation: fadeUp .8s .2s ease both;
+    }
+
+    .section h2 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      border: 1px solid var(--border);
+      margin-bottom: 4rem;
+    }
+
+    .skill-item {
+      padding: 1.4rem 1.6rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      transition: background .2s;
+    }
+
+    .skill-item:hover {
+      background: #1e1e1e;
+    }
+
+    .skill-item span {
+      display: block;
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .4rem;
+    }
+
+    .skill-item p {
+      font-size: .9rem;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    /* ── CTA ── */
+    .cta-link {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: .85rem 2.2rem;
+      background: var(--accent);
+      color: #0e0e0e;
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: opacity .2s, transform .2s;
+    }
+
+    .cta-link:hover { opacity: .85; transform: translateY(-2px); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.5rem; }
+      .hero, .section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .divider { margin-left: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="/">MO.</a>
+    <ul>
+      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <p class="eyebrow">About me</p>
+    <h1>I build things<br>for <em>mobile.</em></h1>
+    <p>
+      Self-taught React Native developer with a background in Node.js and a passion for clean architecture, thoughtful UX, and shipping real products.
+    </p>
+    <p>
+      Currently working at Vega while building my own projects and easing into freelance — one deliberate step at a time.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <h2>What I work with</h2>
+    <div class="skills-grid">
+      <div class="skill-item"><span>Mobile</span><p>React Native · Expo</p></div>
+      <div class="skill-item"><span>Navigation</span><p>Expo Router · Stack</p></div>
+      <div class="skill-item"><span>Styling</span><p>NativeWind · StyleSheet . Tailwind</p></div>
+      <div class="skill-item"><span>State</span><p>TanStack Query · Zustand</p></div>
+      <div class="skill-item"><span>Forms</span><p>React Hook Form · Zod</p></div>
+      <div class="skill-item"><span>Backend</span><p>Node.js · Supabase . Firebase</p></div>
+      <div class="skill-item"><span>Tooling</span><p>Turborepo · pnpm . yarn . npm</p></div>
+      <div class="skill-item"><span>Web</span><p>Astro · TypeScript . React</p></div>
+    </div>
+
+    <a class="cta-link" href="/contact.html">Get in touch →</a>
+  </section>
+
+</body>
+</html>
